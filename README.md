@@ -1,10 +1,11 @@
 # knex-little-logger
 
 [![test](https://github.com/acro5piano/knex-little-logger/actions/workflows/test.yml/badge.svg)](https://github.com/acro5piano/knex-little-logger/actions/workflows/test.yml)
+![npm (tag)](https://img.shields.io/npm/v/knex-little-logger/latest)
 
 > Zero config queries logger for knex
 
-![](https://cloud.githubusercontent.com/assets/4437249/24814454/5215bd9c-1bda-11e7-8574-5f93042395dd.png)
+![](https://user-images.githubusercontent.com/10719495/123086215-1b99a300-d45e-11eb-9470-3a4c58588429.png)
 
 ## Usage
 
@@ -18,16 +19,16 @@ Apply `knex-little-logger` to `knex` instance:
 
 ```js
 import createKnex from 'knex'
-import knexTinyLogger from 'knex-little-logger'
+import { knexLittleLogger } from 'knex-little-logger'
 
 const knexOptions = {} // Your knex config
 const knex = createKnex(knexOptions)
-knexTinyLogger(knex)
+knexLittleLogger(knex)
 
 // alternative
 // knex-little-logger returns knex instance
 // so you can do like this
-const knex = knexTinyLogger(createKnex(knexOptions))
+const knex = knexLittleLogger(createKnex(knexOptions))
 ```
 
 ## Advanced usage
@@ -36,19 +37,19 @@ By default `knex-little-logger` uses `console.log`, but you can specify any logg
 
 ```js
 import createKnex from 'knex'
-import knexTinyLogger from 'knex-little-logger'
+import { knexLittleLogger } from 'knex-little-logger'
 import initDebug from 'debug'
 
 const awesomeLogger = initDebug('my-project:knex')
 const knexOptions = {} // Your knex config
 const knex = createKnex(knexOptions)
-knexTinyLogger(knex, { logger: awesomeLogger })
+knexLittleLogger(knex, { logger: awesomeLogger })
 ```
 
 Also you can disable bindings:
 
 ```js
-knexTinyLogger(knex, { bindings: false })
+knexLittleLogger(knex, { bindings: false })
 ```
 
 ## License
