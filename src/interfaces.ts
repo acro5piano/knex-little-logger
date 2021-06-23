@@ -1,7 +1,7 @@
 export type LogFn = Console['log']
 export type Binding = string | number | boolean | null
 export type Bindings = Binding[]
-export type KnexDriver = 'sqlite3' | 'pg'
+export type KnexDriver = 'sqlite3' | 'pg' | 'mysql2' | 'mysql'
 
 export interface Options {
   logger?: LogFn

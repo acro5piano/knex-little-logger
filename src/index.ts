@@ -1,4 +1,6 @@
+import chalk from 'chalk'
 import { Knex } from 'knex'
+
 import {
   KnexDriver,
   LogFn,
@@ -9,7 +11,6 @@ import {
   Options,
   Query,
 } from './interfaces'
-import chalk from 'chalk'
 
 const COLORIZE = {
   primary: chalk.magenta,
@@ -20,6 +21,8 @@ const COLORIZE = {
 const BINDING_REGEX = {
   pg: /\$\d{1,2}/g,
   sqlite3: /\?/g,
+  mysql2: /\?/g,
+  mysql: /\?/g,
 } as const
 
 const queries = new Map<string, Query>()
@@ -68,7 +71,11 @@ function makePrinter(options: PrinterOptions) {
     }
   }
 
-  if (options.driver !== 'pg' && options.driver !== 'sqlite3') {
+  if (
+    options.driver !== 'pg' &&
+    options.driver !== 'sqlite3' &&
+    options.driver !== 'mysql2'
+  ) {
     throw new Error(
       `[knex-little-logger] Currently ${options.driver} with bindings is not supported.`,
     )

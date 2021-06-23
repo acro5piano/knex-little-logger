@@ -2,9 +2,17 @@
 version: '3'
 services:
 
-  db:
+  pg:
     image: postgres:13.2-alpine
     ports:
       - '12784:5432'
     environment:
       POSTGRES_PASSWORD: postgres
+
+  mysql:
+    image: mysql:8.0.25
+    ports:
+      - '20919:3306'
+    environment:
+      MYSQL_DATABASE: mydb
+      MYSQL_ROOT_PASSWORD: password
