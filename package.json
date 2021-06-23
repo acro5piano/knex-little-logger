@@ -8,16 +8,19 @@
   "license": "MIT",
   "scripts": {
     "test": "ava",
-    "test:show": "ts-node -T tests/executions/sqlite.ts",
     "test:snap": "yarn test --update-snapshots",
+    "ts": "ts-node -T",
     "build": "tsc"
   },
-  "dependencies": {},
+  "dependencies": {
+    "chalk": "^4.1.1"
+  },
   "devDependencies": {
     "@types/node": "^15.12.4",
     "@types/pify": "^5.0.0",
     "ava": "^3.15.0",
     "knex": "^0.95.6",
+    "pg": "^8.6.0",
     "pify": "^5.0.0",
     "sqlite3": "^5.0.2",
     "ts-node": "^10.0.0",

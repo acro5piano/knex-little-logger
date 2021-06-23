@@ -9,11 +9,18 @@ run(async () => {
     useNullAsDefault: true,
   })
 
-  knexLittleLogger(knex)
+  knexLittleLogger(knex, {
+    bindings: true,
+  })
 
   console.log('Results:')
 
   await knex.schema.createTable('users', (t) => {
+    t.increments('id')
+    t.string('name')
+  })
+
+  await knex.schema.createTable('posts', (t) => {
     t.increments('id')
     t.string('name')
   })
@@ -26,7 +33,14 @@ run(async () => {
   await knex('users')
     .select('id', 'name')
     .whereRaw(':column: = :name', { column: 'name', name: 'Who?' })
-    .where({ id: 1 })
+    .where({ id: knex.raw('999') })
+
+  await knex('not_existing_table')
+    .select('id', 'name')
+    .whereRaw(':column: = :name', { column: 'name', name: 'Who?' })
+    .where({ id: knex.raw('999') })
+    .where({ name: knex.raw('?', 'Kazuya') })
+    .catch(() => {})
 
   await knex.destroy()
 })
