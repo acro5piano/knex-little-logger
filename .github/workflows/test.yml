@@ -14,6 +14,7 @@ jobs:
           key: v1-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
           path: node_modules
       - run: docker-compose up -d
+      - run: sleep 20
       - run: yarn install
       - run: yarn tsc
       - run: yarn test
