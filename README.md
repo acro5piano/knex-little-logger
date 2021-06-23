@@ -58,11 +58,12 @@ knexLittleLogger(knex, { bindings: false })
 
 knex-little-logger does:
 
-- Use BigInt for logging time
+- Use BigInt to measure time
 - Written in TypeScript
 - Binding works
-- Add option to disable colorized logs
+- Add the option to disable colorized logs
 - Not works for `knex <= 0.95.0`
+- Not depends on the knex internal api
 
 ## License
 
