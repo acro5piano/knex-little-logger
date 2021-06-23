@@ -6,12 +6,14 @@ export type KnexDriver = 'sqlite3' | 'pg' | 'mysql2' | 'mysql'
 export interface Options {
   logger?: LogFn
   bindings?: boolean
+  colorized?: boolean
 }
 
 export interface PrinterOptions {
   logger: LogFn
   withBindings: boolean
   driver: KnexDriver
+  colorized: boolean
 }
 
 export interface OnQueryArgs {

@@ -6,11 +6,20 @@
   "repository": "git@github.com:acro5piano/knex-little-logger",
   "author": "gosho-kazuya <ketsume0211@gmail.com>",
   "license": "MIT",
+  "files": [
+    "dist/index.js",
+    "dist/index.js.map",
+    "dist/index.d.ts",
+    "dist/index.d.ts.map",
+    "package.json",
+    "LICENSE",
+    "README"
+  ],
   "scripts": {
     "test": "ava",
     "test:snap": "yarn test --update-snapshots",
     "ts": "ts-node -T",
-    "build": "tsc"
+    "build": "rimraf dist && tsc -p tsconfig.prod.json"
   },
   "dependencies": {
     "chalk": "^4.1.1"
@@ -18,12 +27,15 @@
   "devDependencies": {
     "@types/node": "^15.12.4",
     "@types/pify": "^5.0.0",
+    "@types/pino": "^6.3.8",
     "@types/sinon": "^10.0.2",
     "ava": "^3.15.0",
     "knex": "^0.95.6",
     "mysql2": "^2.2.5",
     "pg": "^8.6.0",
     "pify": "^5.0.0",
+    "pino": "^6.11.3",
+    "rimraf": "^3.0.2",
     "sinon": "^11.1.1",
     "sqlite3": "^5.0.2",
     "ts-node": "^10.0.0",

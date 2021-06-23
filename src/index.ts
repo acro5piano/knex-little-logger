@@ -28,18 +28,21 @@ const BINDING_REGEX = {
 const queries = new Map<string, Query>()
 
 export function knexLittleLogger(knex: Knex, options: Options = {}) {
-  const { logger = console.log, bindings = false } = options
+  const { logger = console.log, bindings = false, colorized = true } = options
 
   const printer = makePrinter({
     logger,
     withBindings: bindings,
     driver: knex.client.config.client,
+    colorized,
   })
 
   knex
     .on('query', onQuery)
     .on('query-response', printer)
     .on('query-error', printer)
+
+  return knex
 }
 
 function onQuery({ __knexQueryUid: queryId, sql, bindings }: OnQueryArgs) {
@@ -62,10 +65,11 @@ function makePrinter(options: PrinterOptions) {
       if (!queryInfo) {
         return
       }
-      printColorizedResult(
+      printResult(
         options.logger,
         queryInfo.duration,
         queryInfo.sql,
+        options.colorized,
         err,
       )
     }
@@ -89,10 +93,11 @@ function makePrinter(options: PrinterOptions) {
     if (!queryInfo) {
       return
     }
-    printColorizedResult(
+    printResult(
       options.logger,
       queryInfo.duration,
       printWithBindings(queryInfo.sql, bindings, options.driver),
+      options.colorized,
       err,
     )
   }
@@ -114,24 +119,29 @@ function measureDuration(start: BigInt) {
   ).toFixed(4)
 }
 
-function printColorizedResult(
+function printResult(
   logger: LogFn,
   duration: string,
   parsedQuery: string,
+  colorized: boolean,
   err?: any,
 ) {
-  if (err instanceof Error) {
-    logger(
-      '%s %s',
-      COLORIZE.primary`SQL (${duration} ms)`,
-      COLORIZE.error(parsedQuery),
-    )
+  if (!colorized) {
+    logger('%s %s', `SQL (${duration} ms)`, parsedQuery)
   } else {
-    logger(
-      '%s %s',
-      COLORIZE.primary`SQL (${duration} ms)`,
-      COLORIZE.success(parsedQuery),
-    )
+    if (err instanceof Error) {
+      logger(
+        '%s %s',
+        COLORIZE.primary`SQL (${duration} ms)`,
+        COLORIZE.error(parsedQuery),
+      )
+    } else {
+      logger(
+        '%s %s',
+        COLORIZE.primary`SQL (${duration} ms)`,
+        COLORIZE.success(parsedQuery),
+      )
+    }
   }
 }
 

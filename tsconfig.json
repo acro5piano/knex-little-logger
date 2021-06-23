@@ -10,7 +10,7 @@
     "declaration": true,                   /* Generates corresponding '.d.ts' file. */
     "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
     "sourceMap": true,                     /* Generates corresponding '.map' file. */
-    "outDir": "./build",                        /* Redirect output structure to the directory. */
+    "outDir": "./dist",                        /* Redirect output structure to the directory. */
     "removeComments": false,                /* Do not emit comments to output. */
     "noEmit": false,                        /* Do not emit outputs. */
     "isolatedModules": true,               /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
@@ -28,6 +28,5 @@
     "skipLibCheck": true,                     /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
     "incremental": true  /* Disallow inconsistently-cased references to the same file. */
-  },
-  "exclude": ["build"]
+  }
 }
