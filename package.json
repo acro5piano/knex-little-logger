@@ -1,0 +1,26 @@
+{
+  "name": "knex-little-logger",
+  "version": "0.0.1",
+  "description": "Zero config queries logger for knex, aiming to replace knex-tiny-logger",
+  "main": "dist/index.js",
+  "repository": "git@github.com:acro5piano/knex-little-logger",
+  "author": "gosho-kazuya <ketsume0211@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "ava",
+    "test:show": "ts-node -T tests/executions/sqlite.ts",
+    "test:snap": "yarn test --update-snapshots",
+    "build": "tsc"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^15.12.4",
+    "@types/pify": "^5.0.0",
+    "ava": "^3.15.0",
+    "knex": "^0.95.6",
+    "pify": "^5.0.0",
+    "sqlite3": "^5.0.2",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.4"
+  }
+}
