@@ -1,6 +1,6 @@
 {
   "name": "knex-little-logger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Zero config queries logger for knex, aiming to replace knex-tiny-logger",
   "main": "dist/index.js",
   "repository": "git@github.com:acro5piano/knex-little-logger",
