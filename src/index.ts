@@ -28,7 +28,7 @@ const BINDING_REGEX = {
 const queries = new Map<string, Query>()
 
 export function knexLittleLogger(knex: Knex, options: Options = {}) {
-  const { logger = console.log, bindings = false, colorized = true } = options
+  const { logger = console.log, bindings = true, colorized = true } = options
 
   const printer = makePrinter({
     logger,

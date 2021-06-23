@@ -4,8 +4,33 @@ export type Bindings = Binding[]
 export type KnexDriver = 'sqlite3' | 'pg' | 'mysql2' | 'mysql'
 
 export interface Options {
+  /**
+   * A log function to be used for output.
+   * If you are using `pino`, it should be like this:
+   *
+   * ```ts
+   * import pino from 'pino'
+   *
+   * const looger = pino()
+   * knexLittleLogger(knex, { logger: pino.info.bind(pino) }
+   * ```
+   *
+   * Default: `console.log
+   */
   logger?: LogFn
+
+  /**
+   * If `true` attach binding values to the console output.
+   *
+   * Default: `true`.
+   */
   bindings?: boolean
+
+  /**
+   * If `true` allows the colorized output.
+   *
+   * Default: `true`.
+   */
   colorized?: boolean
 }
 

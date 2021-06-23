@@ -3,7 +3,9 @@
 [![test](https://github.com/acro5piano/knex-little-logger/actions/workflows/test.yml/badge.svg)](https://github.com/acro5piano/knex-little-logger/actions/workflows/test.yml)
 ![npm (tag)](https://img.shields.io/npm/v/knex-little-logger/latest)
 
-> Zero config queries logger for knex
+Zero config queries logger for knex.
+
+The functionality is almost the same as [knex-tiny-logger](https://github.com/khmm12/knex-tiny-logger) which inspired knex-little-logger.
 
 ![](https://user-images.githubusercontent.com/10719495/123086215-1b99a300-d45e-11eb-9470-3a4c58588429.png)
 
@@ -51,6 +53,16 @@ Also you can disable bindings:
 ```js
 knexLittleLogger(knex, { bindings: false })
 ```
+
+## Difference from knex-tiny-logger
+
+knex-little-logger does:
+
+- Use BigInt for logging time
+- Written in TypeScript
+- Binding works
+- Add option to disable colorized logs
+- Not works for `knex <= 0.95.0`
 
 ## License
 
