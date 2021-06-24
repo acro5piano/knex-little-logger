@@ -20,6 +20,7 @@ run(async () => {
   await knex.schema.createTable('users', (t) => {
     t.increments('id')
     t.string('name')
+    t.boolean('is_active')
   })
 
   await knex.schema.createTable('posts', (t) => {
@@ -36,6 +37,9 @@ run(async () => {
     .select('id', 'name')
     .whereRaw(':column: = :name', { column: 'name', name: 'Who?' })
     .where({ id: knex.raw('999') })
+    .where({ is_active: false })
+    .where({ is_active: true })
+    .where({ is_active: null })
 
   await knex('not_existing_table')
     .select('id', 'name')
