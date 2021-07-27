@@ -11,6 +11,10 @@
     "dist/index.js.map",
     "dist/index.d.ts",
     "dist/index.d.ts.map",
+    "dist/interfaces.js",
+    "dist/interfaces.js.map",
+    "dist/interfaces.d.ts",
+    "dist/interfaces.d.ts.map",
     "package.json",
     "LICENSE",
     "README"
