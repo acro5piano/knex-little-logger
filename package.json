@@ -1,23 +1,18 @@
 {
   "name": "knex-little-logger",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Zero config queries logger for knex, aiming to replace knex-tiny-logger",
   "main": "dist/index.js",
   "repository": "git@github.com:acro5piano/knex-little-logger",
   "author": "gosho-kazuya <ketsume0211@gmail.com>",
   "license": "MIT",
   "files": [
-    "dist/index.js",
-    "dist/index.js.map",
-    "dist/index.d.ts",
-    "dist/index.d.ts.map",
-    "dist/interfaces.js",
-    "dist/interfaces.js.map",
-    "dist/interfaces.d.ts",
-    "dist/interfaces.d.ts.map",
+    "dist/*.js",
+    "dist/*.map",
+    "dist/*.ts",
     "package.json",
     "LICENSE",
-    "README"
+    "README.md"
   ],
   "scripts": {
     "test": "ava",
