@@ -104,7 +104,11 @@ function makePrinter(options: PrinterOptions) {
 }
 
 function getQueryInfoAfterResponse(queryId?: string) {
-  const query = queryId && queries.get(queryId)
+  if (!queryId) {
+    return
+  }
+  const query = queries.get(queryId)
+  queries.delete(queryId)
   if (!query) {
     return
   }
